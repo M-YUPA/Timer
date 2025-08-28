@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>タイマー</title>
+    <link rel="icon" href="image/timer.jpg" type="image/jpeg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <div class="header">
+        <img src="image/timer.jpg" alt="タイマーアイコン" class="app-icon" />
+        <h1 class="title">タイマー</h1>
+      </div>
+
+      <div class="mode-toggle" role="tablist" aria-label="モード切替">
+        <button id="btn-stopwatch" class="mode-btn" role="tab" aria-selected="false">ストップウォッチ</button>
+        <button id="btn-countdown" class="mode-btn active" role="tab" aria-selected="true">カウントダウン</button>
+      </div>
+
+      <section id="config-countdown" class="config" aria-hidden="false">
+        <div class="inputs">
+          <label>時間
+            <input id="cd-hours" type="number" inputmode="numeric" min="0" max="99" value="0" />
+          </label>
+          <span class="colon">:</span>
+          <label>分
+            <input id="cd-mins" type="number" inputmode="numeric" min="0" max="59" value="1" />
+          </label>
+          <span class="colon">:</span>
+          <label>秒
+            <input id="cd-secs" type="number" inputmode="numeric" min="0" max="59" value="0" />
+          </label>
+        </div>
+        <div class="presets">
+          <button id="btn-preset-5m" class="preset-btn" type="button">5分</button>
+        </div>
+      </section>
+
+      <div class="display" aria-live="polite" aria-atomic="true">
+        <span id="d-hours" class="unit">00</span>
+        <span class="colon">:</span>
+        <span id="d-mins" class="unit">00</span>
+        <span class="colon">:</span>
+        <span id="d-secs" class="unit">00</span>
+        <span class="dot">.</span>
+        <span id="d-cs" class="unit small">00</span>
+      </div>
+
+      <div class="controls">
+        <button id="btn-start" class="primary">開始</button>
+        <button id="btn-pause" disabled>一時停止</button>
+        <button id="btn-reset" disabled>リセット</button>
+        <button id="btn-lap" disabled>ラップ</button>
+      </div>
+
+      <section id="laps" class="laps" aria-live="polite" style="display:none;">
+        <header>
+          <h2>ラップ</h2>
+          <button id="btn-clear-laps" disabled>クリア</button>
+        </header>
+        <ol id="lap-list"></ol>
+      </section>
+
+      <footer class="tips">
+        <p>スペース: 開始/一時停止 / R: リセット / L: ラップ</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
