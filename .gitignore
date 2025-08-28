@@ -1,0 +1,14 @@
+# macOS metadata
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node modules (if any)
+node_modules/
+
+# Dist/build (if any)
+dist/
+build/
