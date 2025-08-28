@@ -1,0 +1,137 @@
+:root {
+  --bg: #0e1116;
+  --panel: #141924;
+  --panel-2: #1b2230;
+  --text: #e7ecf3;
+  --muted: #9aa4b2;
+  --accent: #5cc8ff;
+  --accent-2: #5effa2;
+  --danger: #ff6b6b;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "BIZ UDPGothic", Meiryo, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1000px 600px at 20% -10%, #1a2233, #0e1116 60%);
+}
+
+.app {
+  max-width: 780px;
+  margin: 4rem auto;
+  padding: 2rem 1.5rem 3rem;
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.header { display: flex; align-items: center; gap: 12px; margin-bottom: 0.5rem; }
+.app-icon { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; box-shadow: var(--shadow); }
+
+.mode-toggle {
+  display: inline-flex;
+  gap: 8px;
+  background: #111622;
+  padding: 6px;
+  border-radius: 12px;
+}
+.mode-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.mode-btn.active { color: var(--text); background: #20293d; }
+.mode-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.config { margin: 1rem 0 0.5rem; }
+.config.hidden { display: none; }
+.inputs { display: flex; align-items: center; gap: 12px; }
+.inputs label { display: grid; gap: 6px; font-size: 12px; color: var(--muted); }
+.inputs input {
+  width: 90px;
+  padding: 12px 10px;
+  border-radius: 10px;
+  border: 1px solid #263149;
+  background: #0f1420;
+  color: var(--text);
+  font-size: 20px;
+}
+.inputs input:focus-visible { outline: 2px solid var(--accent); }
+.colon { color: var(--muted); opacity: 0.8; }
+
+.presets { margin-top: 10px; }
+.preset-btn {
+  appearance: none;
+  border: 1px solid #2b3752;
+  background: #11192a;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.preset-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.preset-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.display {
+  margin: 1.2rem 0 1.4rem;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px;
+  border-radius: 14px;
+  background: #0f1522;
+  border: 1px solid #263149;
+}
+.unit { font-size: 64px; font-weight: 800; letter-spacing: 0.02em; }
+.unit.small { font-size: 32px; font-weight: 700; opacity: 0.9; }
+.dot { opacity: 0.65; font-size: 36px; }
+
+.controls { display: flex; gap: 10px; flex-wrap: wrap; }
+.controls button {
+  appearance: none;
+  border: 1px solid #2b3752;
+  background: #11192a;
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.controls button.primary { background: linear-gradient(180deg, #1d2a42, #1a3250); border-color: #2f456b; }
+.controls button:disabled { opacity: 0.5; cursor: not-allowed; }
+.controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.laps { margin-top: 1rem; }
+.laps header { display: flex; align-items: center; justify-content: space-between; }
+#lap-list { margin: 0.5rem 0 0; padding: 0; list-style: none; max-height: 220px; overflow: auto; border: 1px solid #243049; border-radius: 10px; }
+#lap-list li { padding: 10px 12px; border-bottom: 1px solid #1f2a43; display: flex; justify-content: space-between; gap: 10px; }
+#lap-list li:last-child { border-bottom: none; }
+.lap-idx { color: var(--muted); }
+.lap-split { color: var(--accent-2); font-weight: 700; }
+.lap-total { color: var(--text); font-weight: 600; }
+
+.tips { margin-top: 1rem; color: var(--muted); font-size: 12px; }
+
+@media (max-width: 520px) {
+  .unit { font-size: 44px; }
+  .unit.small { font-size: 24px; }
+  .inputs input { width: 80px; }
+}
